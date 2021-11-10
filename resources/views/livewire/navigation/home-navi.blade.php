@@ -25,7 +25,11 @@
 
     </div>
 
-{{--    @livewire('auth.register')--}}
+    <div x-show="isOpen">
+
+        @livewire('auth.register')
+
+    </div>
 
 </div>
 

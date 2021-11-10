@@ -15,8 +15,8 @@ class AdminSchedule extends Component
 
     protected array $rules = [
         'Schedule.course_teacher_id' => 'required',
-        'Schedule.start' => 'required',
-        'Schedule.end' => 'required',
+        'Schedule.day' => 'required',
+        'Schedule.time' => 'required',
 
     ];
 
@@ -27,8 +27,8 @@ class AdminSchedule extends Component
 
         Schedule::create([
             'course_teacher_id' => $this->Schedule->course_teacher_id,
-            'start_time' => $this->Schedule->start,
-            'end_time' => $this->Schedule->end,
+            'day' => $this->Schedule->day,
+            'time' => $this->Schedule->time,
 
         ]);
 
@@ -45,8 +45,8 @@ class AdminSchedule extends Component
         Schedule::where('id', $this->Schedule->id)
             ->update([
                 'course_teacher_id' => $this->Schedule->course_teacher_id,
-                'start_time' => $this->Schedule->start,
-                'end_time' => $this->Schedule->end,
+                'day' => $this->Schedule->day,
+                'time' => $this->Schedule->time,
             ]);
 
         session()->flash('success', 'Schedule Updated');

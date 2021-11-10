@@ -105,8 +105,21 @@
 
             <x-input.label for="Student.class" label="Class">
 
-                <x-input.text wire:model="Student.class" type="text"
-                              :error="$errors->first('Student.class')"/>
+                <x-input.select wire:model="Student.class" type="text"
+                                :error="$errors->first('Student.class')">
+
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="A3">A3</option>
+                    <option value="A4">A4</option>
+                    <option value="A5">A5</option>
+                    <option value="A6">A6</option>
+                    <option value="A7">A7</option>
+                    <option value="A8">A8</option>
+                    <option value="A9">A9</option>
+                    <option value="A10">A10</option>
+
+                </x-input.select>
 
             </x-input.label>
 

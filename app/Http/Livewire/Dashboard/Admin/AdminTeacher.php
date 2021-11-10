@@ -83,7 +83,7 @@ class AdminTeacher extends Component
                 'dob' => $this->teacher->dob
             ]);
 
-
+            CourseTeacher::where('teacher_id',$this->teacher->id)->delete();
         foreach ($this->courses as $course) {
             CourseTeacher::create([
                 'teacher_id' => $this->teacher->id,

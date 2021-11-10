@@ -36,6 +36,6 @@ class Course extends Model
 
     public function courseTeacher(): HasMany
     {
-        return $this->hasMany(CourseTeacher::class,'teacher_id');
+        return $this->hasMany(CourseTeacher::class,'teacher_id')->with('schedule');
     }
 }

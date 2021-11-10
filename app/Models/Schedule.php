@@ -23,14 +23,12 @@ class Schedule extends Model
 
     protected $fillable = [
         'course_teacher_id',
-        'start_time',
-        'end_time',
+        'day',
+        'time',
+
     ];
 
-    protected $casts = [
-        'start_time' => 'datetime',
-        'end_time' => 'datetime'
-    ];
+
 
     public function courseTeacher(): BelongsTo
     {

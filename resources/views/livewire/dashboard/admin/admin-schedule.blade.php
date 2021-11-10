@@ -22,8 +22,8 @@
 
             <x-table.head> Teacher </x-table.head>
             <x-table.head> Course </x-table.head>
-            <x-table.head> Start Date </x-table.head>
-            <x-table.head> End Date </x-table.head>
+            <x-table.head> Day </x-table.head>
+            <x-table.head> Class Time </x-table.head>
             <x-table.head></x-table.head>
 
         </x-slot>
@@ -40,13 +40,13 @@
 
                 <x-table.cell>
 
-                    {{ $Schedule->start_time }}
+                    {{ $Schedule->day }}
 
                 </x-table.cell>
 
                 <x-table.cell>
 
-                    {{ $Schedule->end_time }}
+                    {{ $Schedule->time }}
 
                 </x-table.cell>
 
@@ -90,7 +90,7 @@
                                 :error="$errors->first('Schedule.course_teacher_id')" >
 
                     @forelse($offeredCourses as $offeredCourse)
-                        <option value="{{ $offeredCourse->id }}"> {{ $offeredCourse->course->course_nm }} </option>
+                        <option value="{{ $offeredCourse->id }}"> {{ $offeredCourse->teacher->name }} - {{ $offeredCourse->course->course_nm  }} </option>
                     @empty
                         <option selected> No Course </option>
                     @endforelse
@@ -99,17 +99,26 @@
 
             </x-input.label>
 
-            <x-input.label for="Schedule.start" label="Start Time">
+            <x-input.label for="Schedule.day" label="Day">
 
-                <x-input.text wire:model="Schedule.start" type="date"
-                              :error="$errors->first('Schedule.start')"/>
+                <x-input.select wire:model="Schedule.day" type="day"
+                                :error="$errors->first('Schedule.day')">
+
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Thursday">Thursday</option>
+                    <option value="Friday">Friday</option>
+                    <option value="Saturday">Saturday</option>
+
+                </x-input.select>
 
             </x-input.label>
 
-            <x-input.label for="Schedule.end" label="End Time">
+            <x-input.label for="Schedule.time" label="Class Time">
 
-                <x-input.text wire:model="Schedule.end" type="date"
-                              :error="$errors->first('Schedule.end')"/>
+                <x-input.text wire:model="Schedule.time" type="time"
+                              :error="$errors->first('Schedule.time')"/>
 
             </x-input.label>
 

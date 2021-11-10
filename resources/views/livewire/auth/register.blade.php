@@ -1,8 +1,7 @@
-<div>
 
-    <x-modal x-show="isOpen"  >
+    <x-modal>
 
-        <x-form wire:submit="createStudent"
+        <x-form wire:submit.prevent="createStudent"
                 @click.away="isOpen = false"
             grid="3" class="w-9/12">
 
@@ -36,11 +35,46 @@
 
             </x-input.label >
 
-            <x-input.label colspan="col-span-full"
+            <x-input.label
                            for="user.email" label="Email Address">
 
                 <x-input.text wire:model="user.email" type="email"
                               :error="$errors->first('user.email')" />
+
+            </x-input.label>
+
+            <x-input.label for="class" label="Choose Class">
+
+                <x-input.select wire:model="class" type="text"
+                                :error="$errors->first('class')">
+
+                    <option value="A1">A1</option>
+                    <option value="A2">A2</option>
+                    <option value="A3">A3</option>
+                    <option value="A4">A4</option>
+                    <option value="A5">A5</option>
+                    <option value="A6">A6</option>
+                    <option value="A7">A7</option>
+                    <option value="A8">A8</option>
+                    <option value="A9">A9</option>
+                    <option value="A10">A10</option>
+
+                </x-input.select>
+
+            </x-input.label>
+
+            <x-input.label for="courses" label="Available Courses">
+
+                <x-input.select wire:model="courses"
+                                :error="$errors->first('courses')" >
+
+                    @forelse($offeredCourses as $offeredCourse)
+                        <option value="{{ $offeredCourse->id }}"> {{ $offeredCourse->course_nm }} </option>
+                    @empty
+                        <option selected> No Course </option>
+                    @endforelse
+
+                </x-input.select>
 
             </x-input.label>
 
@@ -69,4 +103,4 @@
 
     </x-modal>
 
-</div>
+

@@ -28,10 +28,10 @@ class Login extends Component
                 return redirect()->route('admin.dashboard');
             }
             if(auth()->user()->usertype === 2 ){
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('teacher.dashboard');
             }
             if(auth()->user()->usertype === 3 ){
-                return redirect()->route('admin.dashboard');
+                return redirect()->route('student.dashboard');
             }
 
         }
