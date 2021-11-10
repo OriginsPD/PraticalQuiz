@@ -6,7 +6,7 @@
 
 @php
 
-$classDefault = ' p-8 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800 ';
+$classDefault = ' p-8 mx-auto bg-white  shadow-md dark:bg-gray-800 ';
 
 $classDefault .= ($class ?? false)
                  ? $class

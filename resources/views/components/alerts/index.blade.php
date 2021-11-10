@@ -10,12 +10,11 @@
 
 @endphp
 
-<div x-data="{ {{ $alpName }}: true }"
-     x-on:show-alert.window="{{ $alpName }} = false"
-     x-on:close-alert.window="{{ $alpName }} = true"
-    class="w-full text-white {{ $theme }}">
+<div x-data="{ isAlert: false }"
 
-    <div x-show="{{ $alpName}}"
+     x-on:close-alert.window="isAlert = true" class="w-full text-white {{ $theme }}">
+
+    <div x-show="isAlert"
         class="container flex items-center justify-between px-4 py-2 mx-auto">
 
         <div class="flex">
